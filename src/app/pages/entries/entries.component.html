@@ -1,0 +1,44 @@
+<div class="idBody w-100 m-0 mt-4 mb-1 h-100 container-fluid">
+  <div class="d-flex justify-content-center mb-3 border-3 border-bottom border-black mx-auto w-75">
+    <h1 class="mb-3">Entries</h1>
+  </div>
+
+  <div (click)="viewEntry(entry)" *ngFor="let entry of entries let i= index" class="card bg-light mt-1 border-3 border-dark mx-auto d-flex flex-column container-fluid table-responsive w-75 z-2">
+    <div class="row mt-1 container-fluid pe-0">
+      <h3 class="col-12 col-sm-12 col-lg-4 col-xl-5 col-xxl-5 px-0">{{entry.title}}</h3>
+      <div class="col-lg-1 col-xl-2 col-xxl-2"></div>
+      <div class="col-12 col-sm-12 col-lg-7 col-xl-5 col-xxl-5 mt-2 px-0 d-flex justify-content-lg-end justify-content-sm-center row container-fluid mx-0">
+        <h6 class="col-6 col-sm-6 d-flex justify-content-lg-end justify-content-sm-center smallerH6 mx-0">Created: {{entry.createdDate | date:"shortDate"}}</h6>
+        <h6 class="col-6 col-sm-6 d-flex justify-content-lg-end justify-content-sm-center smallerH6 pe-0">Modified: {{entry.editedDate | date:"shortDate"}}</h6>
+      </div>
+    </div>
+
+    <div class="row mb-1 container-fluid pe-0">
+
+      <div class="col-12 col-lg-4 col-xl-4 col-xxl-3 px-0">
+        <select (click)="ignoreClick($event)" class="form-select" name="collection" [compareWith]="customCollectionCompare" [(ngModel)]="entry.collection" #collectionTitle="ngModel" (ngModelChange)="updateCollection(entry, $event)">
+          <option *ngFor="let option of collections" [ngValue]="option">{{option.title}}</option>
+        </select>
+      </div>
+
+      <div class="col-12 col-lg-3 col-xl-4 col-xxl-6"></div>
+
+      <div class="col-12 col-lg-5 col-xl-4 col-xxl-3 top-margin container-fluid d-flex justify-content-end px-0">
+        <div class="col-lg-4 col-xxl-4"></div>
+        <select (click)="ignoreClick($event)" class="form-select" name="hiddenStatus" [(ngModel)]="entry.hiddenStatus" #hiddenStatus="ngModel" (ngModelChange)="updateHiddenStatus(entry)">
+          <option [selected]="option == entry.hiddenStatus?.toString()" *ngFor="let option of hiddenOptions" [ngValue]="option">{{option}}</option>
+        </select>
+
+        <button class="col-2 col-lg-6 col-xxl-6 btn btn-primary pb-1 px-1 rounded-1 ms-1 deleteBtn" (click)="deleteEntry(entry); ignoreClick($event)"><i class="bi bi-trash-fill icon-large p-0 m-0"></i></button>
+      </div>
+
+
+    </div>
+
+  </div>
+
+  <div class="fixed-bottom d-flex justify-content-end z-1">
+    <button (click)="addEntry()" class="btn btn-primary btn-circle btn-xl btn-pullup"><i class="bi bi-plus large-plus"></i></button>
+  </div>
+
+</div>

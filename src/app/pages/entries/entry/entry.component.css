@@ -1,0 +1,50 @@
+.card-w {
+  width: 80vw
+}
+
+.card-h {
+  min-height: 70vh;
+}
+
+.area_h {
+  height: 55vh;
+}
+
+.notrezisable {
+  resize: none;
+}
+
+
+.aNotHover {
+  clip-path: polygon(100% 92%, 49% 92%, 0 92%, 0 50%, 50% 70%, 100% 50%);
+  /*clip-path: polygon(100% 40%, 49% 40%, 0 40%, 0 0, 50% 23%, 100% 0);*/
+  margin-bottom: -10px;
+}
+
+a:hover {
+  clip-path: polygon(100% 92%, 49% 92%, 0 92%, 0 0, 50% 23%, 100% 0);
+  margin-bottom: -10px;
+}
+
+.aHovered {
+  clip-path: polygon(100% 92%, 49% 92%, 0 92%, 0 0, 50% 23%, 100% 0);
+  margin-bottom: -10px;
+}
+
+
+.iconSize1 {
+  font-size: 15px;
+}
+
+.iconSize2 {
+  font-size: 15px;
+}
+
+@media (pointer: none), (pointer:coarse) {
+  .aNotHover {
+    clip-path: polygon(100% 92%, 49% 92%, 0 92%, 0 0, 50% 23%, 100% 0);
+    margin-bottom: -10px;
+  }
+}
+
+

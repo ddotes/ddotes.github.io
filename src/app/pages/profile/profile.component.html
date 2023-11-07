@@ -1,0 +1,9 @@
+<h2>Welcome {{user.username}}</h2>
+<h2>Your email is: {{user.email}}</h2>
+<h2>Your profile is: {{user.hiddenStatus}}</h2>
+<h2>Your image sucks: </h2>
+<img [src]="user.pfpLink" alt="Boo">
+<div>
+  <button (click)="logOut()">Log out</button>
+</div>
+

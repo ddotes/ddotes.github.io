@@ -1,0 +1,41 @@
+.idBody {
+  font-family: SansSerif;
+  font-size: 16px;
+}
+
+.border-color {
+  border-color: #d9534f;
+  box-shadow: 0 0 2px 3px #f5b3b0;
+}
+
+.bi {
+  position: absolute;
+  color: red;
+}
+
+.right-addon .bi {
+  right: 0px;
+}
+
+.errorPopover {
+  display: none;
+}
+
+.errorPopover[data-show] {
+  display: block;
+  border: red solid 0.1rem;
+  /*border-color: #d9534f;*/
+  /*border-width: 0.1rem;*/
+  background: #333;
+  color: white;
+  font-weight: bold;
+  padding: 4px 8px;
+  font-size: 13px;
+  border-radius: 4px;
+}
+
+@media (min-width: 767px) {
+  .errorPopover[data-show] {
+
+  }
+}

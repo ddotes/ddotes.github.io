@@ -1,0 +1,34 @@
+<div class="card-h">
+<div (click)="editMode ? saveText() : null" class="p-3 border-5 card bg-light card-w d-flex flex-column align-self-stretch">
+
+    <h2 *ngIf="!editTitle" (dblclick)="editTitleBtn()" class="d-flex justify-content-center">{{entry.title}}</h2>
+    <form *ngIf="editTitle" class="d-flex justify-content-center card-header" #titleForm="ngForm" (focusout)="saveTitle()">
+
+      <input class="form-control bg-light text-center" name="title" #titleInput [(ngModel)]="title">
+    </form>
+
+    <div class="card-body row h">
+
+      <div class="col-12 container-fluid">
+        <select class="form-select" name="collection" [compareWith]="customCollectionCompare" [(ngModel)]="entry.collection" #collectionTitle="ngModel" (ngModelChange)="updateCollection(entry, $event)">
+          <option *ngFor="let option of collections" [ngValue]="option">{{option.title}}</option>
+        </select>
+        <select class="form-select mb-1" name="hiddenStatus" [(ngModel)]="entry.hiddenStatus" #hiddenStatus="ngModel" (ngModelChange)="updateHiddenStatus(entry)">
+          <option [selected]="option == entry.hiddenStatus?.toString()" *ngFor="let option of hiddenOptions" [ngValue]="option">{{option}}</option>
+        </select>
+      </div>
+
+      <div class="d-flex justify-content-end">
+        <a (click)="editMode ? saveText() : editText(); ignoreClick($event)" [ngClass]="editMode ? 'btn-success aHovered' : 'btn-primary aNotHover'" class="p-2 py-3 btn position-relative z-0"><span [ngClass]="editMode ? 'bi-check-lg iconSize2' : 'bi-pencil iconSize1'" class="bi p-0 m-0"></span></a>
+      </div>
+
+      <textarea (click)="ignoreClick($event)" readonly *ngIf="!editMode" (dblclick)="editText()" class="border border-2 form-control bg-light border-dark area_h position-relative z-1">{{entry.text}}</textarea>
+      <textarea (click)="ignoreClick($event)" #textInput *ngIf="editMode" class="border border-2 border-dark form-control area_h notrezisable position-relative z-1"  [(ngModel)]="entry.text"></textarea>
+    </div>
+
+    <div class=" row h-75 d-flex justify-content-center">
+      <h6 class="col-12 col-md-6 d-flex justify-content-center">Created: {{entry.createdDate | date:"short"}}</h6>
+      <h6 class="col-12 col-md-6 d-flex justify-content-center">Edited: {{entry.editedDate | date:"short"}}</h6>
+    </div>
+</div>
+</div>

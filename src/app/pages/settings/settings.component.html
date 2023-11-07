@@ -1,0 +1,164 @@
+<div class="idBody row w-100 m-0 mt-4 h-100 container-fluid">
+
+  <div class="card bg-light mx-auto d-flex flex-column container-fluid table-responsive mb-1">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 c1">
+        <h3 class="mt-2 ms-1">Avatar</h3>
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 col-xxl-9 c2 py-3">
+        <div class="row">
+          <div class="col-3 col-sm-3 col-md-4 col-lg-1 col-xl-1 col-xxl-1"></div>
+          <form #pfpForm="ngForm" class="col-9 col-sm-9 col-md-8 col-lg-11 col-xl-11 col-xxl-11 container-fluid">
+            <div class="row container-fluid">
+              <div class="pfp-div col-10 col-sm-8 col-md-9 col-lg-10 col-xl-10 col-xxl-10 row">
+                <div class="col-10 col-sm-8 col-md-8 col-lg-4 col-xl-3 col-xxl-3 d-flex flex-column justify-content-center temp smallerDiv">
+                  <img [src]="oldUser.pfpLink" alt="Boo" class="d-block img-fluid mb-2 rounded">
+                  <input type="file" (change)="onFileSelect($event.target)" id="inputFile">
+                  <input class="btn btn-primary button-font-size1 fileButton px-1" type="text" value="Upload image" onclick="document.getElementById('inputFile').click();" />
+                </div>
+                <div class="col-2 col-sm-4 col-md-4 col-lg-8 col-xl-8 col-xxl-10"></div>
+              </div>
+              <div class="col-2 col-sm-3 col-md-3 col-lg-2 col-xl-9 col-xxl-2"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card bg-light mx-auto d-flex flex-column container-fluid table-responsive mb-1">
+    <div class="row">
+
+      <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 c1">
+        <h3 class="mt-2 ms-1">Profile</h3>
+      </div>
+
+
+      <div class="col-8 col-sm-12 col-md-9 col-lg-9 col-xl-9 col-xxl-9 c2 py-2 container-fluid">
+
+        <div class="row">
+          <div class="col-lg-1 col-xl-1"></div>
+
+          <div class="col-12 col-sm-12 col-md-12 col-lg-11 col-xl-11 col-xxl-11 container-fluid">
+
+            <form #emailForm="ngForm" (ngSubmit)="updateEmail()" class="row mt-2">
+              <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 col-xxl-7 container-fluid">
+                <div class="row">
+                  <label class="col-12 col-sm-4 col-md-6 col-lg-5 col-xl-4 col-xxl-4 col-form-label">Email: </label>
+
+                  <input [disabled]="edit!='email'" type="text" name="email" required [(ngModel)]="newUser.email" #email="ngModel" class="col-12 col-sm-8 col-md-6 col-lg-7 col-xl-8 col-xxl-8 smallInput">
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-5 ps-4 my-auto">
+                <ng-container *ngIf="edit!='email' else cancelTemplateEmail">
+                  <button (click)="editMode('email')" class="btn btn-primary px-3 smallButton rowButton">Change</button>
+                </ng-container>
+              </div>
+            </form>
+
+            <form #usernameForm="ngForm" (ngSubmit)="updateUsername()" class="row mt-2">
+              <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 col-xxl-7 container-fluid">
+                <div class="row">
+                  <label class="col-12 col-sm-4 col-md-6 col-lg-5 col-xl-4 col-xxl-4 col-form-label">Username: </label>
+                  <input [disabled]="edit!='username'" type="text" name="username" required [(ngModel)]="newUser.username" #username="ngModel" class="col-12 col-sm-8 col-md-6 col-lg-7 col-xl-8 col-xxl-8 smallInput">
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-5 ps-4 my-auto">
+                <ng-container *ngIf="edit!='username' else cancelTemplateUsername">
+                  <button (click)="editMode('username')" class="btn btn-primary px-3 smallButton rowButton">Change</button>
+                </ng-container>
+              </div>
+            </form>
+
+            <form class="row mt-2">
+              <div class="col-12 col-sm-9 col-md-8 col-lg-8 col-xl-8 col-xxl-7 container-fluid">
+                <div class="row">
+                  <label class="col-12 col-sm-4 col-md-6 col-lg-5 col-xl-4 col-xxl-4 col-form-label">Profile visibility: </label>
+                  <select name="hiddenStatus" [(ngModel)]="newUser.hiddenStatus" #hiddenStatus="ngModel" (ngModelChange)="updateHiddenStatus()" class="col-12 col-sm-8 col-md-6 col-lg-7 col-xl-8 col-xxl-8">
+                    <option [selected]="option == newUser.hiddenStatus?.toString()" *ngFor="let option of hiddenOptions" [ngValue]="option">{{option}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-sm-3 col-md-4 col-lg-4 col-xl-4 col-xxl-5 ps-4 my-auto"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card bg-light mx-auto d-flex flex-column container-fluid table-responsive">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 c1">
+        <h3 class="mt-2 ms-1">Password</h3>
+      </div>
+
+      <div class="col-8 col-sm-12 col-md-9 col-lg-9 col-xl-9 col-xxl-9 c2 py-2 container-fluid">
+
+        <div class="row">
+
+          <div class="col-lg-1 col-xl-1 col-xxl-1"></div>
+          <form #passwordForm="ngForm" (ngSubmit)="updatePassword()" class="col-12 col-sm-12 col-md-12 col-lg-11 col-xl-11 col-xxl-11">
+
+            <fieldset [disabled]="edit!='pass'" class="row">
+              <div class="col-12 col-sm-9 col-md-8 col-lg-8 col-xl-8 col-xxl-7 container-fluid">
+                <div class="row mt-2">
+                  <label class="col-12 col-sm-4 col-md-6 col-lg-5 col-xl-4 col-xxl-4 col-form-label">Current password:</label>
+                  <input class="col-12 col-sm-8 col-md-6 col-lg-7 col-xl-8 col-xxl-8" type="text" [(ngModel)]="login.oldPass" name="currentPass" required>
+                </div>
+                <div class="row mt-2">
+                  <label class="col-12 col-sm-4 col-md-6 col-lg-5 col-xl-4 col-xxl-4 col-form-label">New password:</label>
+                  <input class="col-12 col-sm-8 col-md-6 col-lg-7 col-xl-8 col-xxl-8" type="text" [(ngModel)]="login.pass" name="pass" required>
+                </div>
+                <div class="row mt-2 position-relative right-addon">
+                  <label class="col-12 col-sm-4 col-md-6 col-lg-5 col-xl-4 col-xxl-4 col-form-label">Confirm password:</label>
+
+
+                  <span id="cPassErrorIcon" [hidden]="edit !='pass' || (passConfirm.valid && passConfirm.value == login.pass) || passConfirm.untouched" class="bi bi-info-circle  position-absolute text-end smallIcon"></span>
+                  <input id="cPassInput" [ngClass]="edit !='pass' || (passConfirm.valid && passConfirm.value == login.pass) || passConfirm.untouched ? 'goodClass' : 'border-2 border-color'" class="col-12 col-sm-8 col-md-6 col-lg-7 col-xl-8 col-xxl-8" type="text" ngModel name="passConfirm" #passConfirm=ngModel required>
+                </div>
+              </div>
+              <div class="col-12 col-sm-3 col-md-4 col-lg-4 col-xl-4 col-xxl-5"></div>
+            </fieldset>
+            <div class="row">
+              <div class="col-12 col-sm-9 col-md-8 col-lg-8 col-xl-8 col-xxl-7 container-fluid">
+                <div class="row mt-3">
+                  <div class="col-12 col-sm-4 col-md-6 col-lg-5 col-xl-4 col-xxl-4"></div>
+                  <ng-container *ngIf="edit!='pass' else cancelTemplateBig">
+                    <button (click)="editMode('pass')" class="btn btn-primary col-12 col-sm-8 col-md-6 col-lg-7 col-xl-8 col-xxl-8 bigButton">Change</button>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="col-12 col-sm-3 col-md-4 col-lg-4 col-xl-4 col-xxl-5"></div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <ng-template #cancelTemplateEmail>
+    <button [disabled]="emailForm.invalid" type="submit" class="btn btn-primary me-1 smallButton rowButton lessApplyPadding applyOverallPadding">Apply</button>
+    <button (click)="cancelEditing()" class="btn btn-primary smallButton row2Button lessCancelPadding cancelOverallPadding">Cancel</button>
+  </ng-template>
+  <ng-template #cancelTemplateUsername>
+    <button [disabled]="usernameForm.invalid" type="submit" class="btn btn-primary me-1 smallButton rowButton lessApplyPadding applyOverallPadding">Apply</button>
+    <button (click)="cancelEditing()" class="btn btn-primary smallButton row2Button lessCancelPadding cancelOverallPadding">Cancel</button>
+  </ng-template>
+  <ng-template #cancelTemplateBig>
+    <button type="submit" [disabled]="(passConfirm.value != login.pass) || passwordForm.invalid" class="btn btn-primary mb-1 col-12 col-sm-8 col-md-6 col-lg-7 col-xl-8 col-xxl-8 bigButton">Apply</button>
+    <div class="col-12 col-sm-4 col-md-6 col-lg-5 col-xl-4"></div>
+    <button (click)="cancelEditing(); passConfirm" class="btn btn-primary col-12 col-sm-8 col-md-6 col-lg-7 col-xl-8 col-xxl-8 bigButton">Cancel</button>
+  </ng-template>
+  <!--<h2>Your profile is: {{user.hiddenStatus}}</h2>-->
+
+</div>
+
+<div id="errorPopup" class="errorPopover bg-danger text-center rounded-3" style="font-size: 0.9rem">
+  {{popupErrorMsg.errorString}}
+</div>

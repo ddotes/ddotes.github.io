@@ -1,0 +1,78 @@
+<div class="reBody row w-100 m-0 mt-5 h-100 container-fluid">
+  <div class="mx-auto col-12 col-sm-12 col-md-8 col-lg-6 col-xl-6">
+
+    <form class="card bg-light col-12 col-sm-12 col-md-8 col-lg-7 col-xl-6 d-flex container-fluid flex-column align-items-center table-responsive" #registerForm="ngForm" (ngSubmit)="registerUser()">
+
+      <h1 class="card-header border-0 text-center login mt-4">Sign up</h1>
+
+      <fieldset class="username-div col-9 mb-2">
+        <label for="username" class="mt-2">Username: </label>
+
+        <div class="inner-addon right-addon">
+          <span id="usernameErrorIcon" [hidden]="username.valid || username.untouched" class="bi bi-info-circle p-2"></span>
+          <input [ngClass]="username.valid || username.untouched ? 'goodClass' : 'border-2 border-color'" class="d-block form-control" name="username" id="username" required [(ngModel)]="user.username" #username="ngModel">
+        </div>
+      </fieldset>
+
+      <fieldset class="email-div col-9 mb-2">
+        <label for="email">Email: </label>
+
+        <div class="inner-addon right-addon">
+          <span id="emailErrorIcon" [hidden]="email.valid || email.untouched" class="bi bi-info-circle p-2"></span>
+          <input [ngClass]="email.valid || email.untouched ? 'goodClass' : 'border-2 border-color'" class="d-block form-control" id="email" name="email" required [(ngModel)]="user.email" #email="ngModel">
+        </div>
+      </fieldset>
+
+      <fieldset class="pass-div col-9 mb-2">
+        <label for="password">Password: </label>
+
+        <div class="inner-addon right-addon">
+          <span id="passErrorIcon" [hidden]="pass.valid || pass.untouched" class="bi bi-info-circle p-2"></span>
+          <input type="password" [ngClass]="pass.valid || pass.untouched ? 'goodClass' : 'border-2 border-color'" class="d-block form-control" id="password" name="pass" required [(ngModel)]="login.pass" #pass="ngModel">
+        </div>
+      </fieldset>
+
+      <fieldset class="confPass-div col-9 mb-2">
+        <label for="cPass">Confirm Password: </label>
+
+        <div class="inner-addon right-addon">
+          <span id="cPassErrorIcon" [hidden]="(confirmPass.valid && confirmPass.value == login.pass) || confirmPass.untouched" class="bi bi-info-circle p-2"></span>
+          <input type="password" [ngClass]="(confirmPass.valid && confirmPass.value == login.pass) || confirmPass.untouched ? 'goodClass' : 'border-2 border-color'" class="d-block form-control" id="cPass" name="confirmPass" required ngModel #confirmPass="ngModel">
+        </div>
+
+
+      </fieldset>
+
+      <fieldset class="birthday-div col-9 mb-2">
+        <label for="birthday">Birthday: </label>
+
+        <div class="inner-addon right-addon">
+          <mat-form-field class="col-12 ">
+            <input matInput [matDatepicker]="picker" [readonly]="true" [formControl]="date" [max]="maxDate"  class="d-block form-control" id="birthday" name="birthday" value="2010-3-25" required [(ngModel)]="user.birthday">
+            <mat-datepicker-toggle class="" matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker [touchUi]="!!(isHandset$ | async)" #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </fieldset>
+
+
+
+
+      <fieldset class="mb-3 mx-auto col-8 mt-4">
+        <button [disabled]="!registerForm.form.valid || (confirmPass.value != login.pass)" class="btn btn-primary col-12" type="submit">Submit</button>
+      </fieldset>
+      <div></div>
+      <div class="login mb-3">
+        Already a user?
+        <a (click)="goToLogin()" href="/login">Log in</a>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+
+
+<div id="errorPopup" class="errorPopover bg-danger text-center rounded-3" style="font-size: 0.9rem">
+  {{popupErrorMsg.errorString}}
+</div>

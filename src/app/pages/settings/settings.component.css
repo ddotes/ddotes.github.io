@@ -1,0 +1,250 @@
+.idBody {
+  font-family: SansSerif;
+  font-size: 16px;
+}
+
+.border-color {
+  border-color: #d9534f;
+  box-shadow: 0 0 2px 3px #f5b3b0;
+}
+
+.bi {
+  color: red;
+  padding: 0.5rem;
+}
+
+.smallIcon {
+  width: 7.5%;
+}
+
+.right-addon .bi {
+  right: 0px;
+  left: auto;
+}
+
+.errorPopover {
+  display: none;
+}
+
+.errorPopover[data-show] {
+  display: block;
+  border: red solid 0.1rem;
+  /*border-color: #d9534f;*/
+  /*border-width: 0.1rem;*/
+  background: #333;
+  color: white;
+  font-weight: bold;
+  padding: 4px 8px;
+  font-size: 13px;
+  border-radius: 4px;
+}
+
+.c1 {
+  background-color: #E8DECD;
+}
+
+.c2 {
+  background-color: #F8F5F0;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.button-font-size1 {
+  font-family: SansSerif;
+}
+
+.applyOverallPadding {
+  padding-left: 23px;
+  padding-right: 23px;
+}
+
+.cancelOverallPadding {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+@media (max-width: 576px) {
+  input {
+    width: 90%;
+    margin-left: 12px;
+  }
+
+  .smallButton {
+    width: 95%;
+    margin-top: 4px;
+  }
+
+  .bigButton {
+    width: 90%;
+    margin-left: 12px;
+  }
+
+  select {
+    width: 90%;
+    margin-left: 12px;
+  }
+
+  .fileButton {
+    width: 100%;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-left: 0;
+    font-size: 2.5vw;
+    min-width: 25vw;
+  }
+
+  .temp {
+    margin-left: 10px;
+  }
+
+  .bi {
+    top: 48%;
+    margin-right: 9.5%;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .smallInput {
+    width: 60%;
+    margin-left: 16px;
+  }
+
+  .rowButton {
+    margin-left: -25px;
+  }
+
+  .row2Button {
+    margin-left: -1px;
+  }
+
+  .lessApplyPadding {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .lessCancelPadding {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+
+  .temp {
+    margin-left: 55px;
+  }
+
+  .fileButton {
+    font-size: 2vw;
+    min-width: 15vw;
+  }
+
+  select {
+     width: 53.5%;
+     margin-left: 1px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  input[type="text"] {
+    margin-left: -25px;
+    width: 55%;
+  }
+
+  select {
+    margin-left: -25px;
+    width: 55%;
+  }
+
+  .bigButton {
+    margin-left: -25px;
+    width: 55%;
+  }
+
+  .fileButton {
+    font-size: 1.5vw;
+    min-width: 12vw;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 850px) {
+  .rowButton {
+    margin-left: -25px;
+  }
+
+  .row2Button {
+    margin-left: -1px;
+  }
+
+  .lessApplyPadding {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+
+  .lessCancelPadding {
+    padding-left: 11px;
+    padding-right: 11px;
+  }
+
+  .bi {
+    padding-left: 0;
+    margin-right: 0.2rem;
+  }
+}
+
+@media (min-width: 850px) and (max-width: 992px) {
+  .rowButton {
+    margin-left: -15px;
+  }
+
+  .row2Button {
+    margin-left: -1px;
+  }
+
+  .lessApplyPadding {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+
+  .lessCancelPadding {
+    padding-left: 11px;
+    padding-right: 11px;
+  }
+
+  .bi {
+    padding-left: 0;
+    margin-right: 0.2rem;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1080px) {
+  .rowButton {
+    margin-left: -5px;
+  }
+
+  .lessApplyPadding {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .lessCancelPadding {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+@media (min-width: 1700px) {
+  .smallerDiv {
+    width: 20%;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 681px) {
+  .bi {
+    padding-top: 1.1rem;
+    padding-bottom: 0.4rem;
+    padding-right: 0.6rem;
+  }
+}
+
+
+

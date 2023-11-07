@@ -1,0 +1,91 @@
+<div class="idBody w-100 m-0 mt-4 mb-1 h-100 container-fluid">
+
+  <div class="d-flex justify-content-center mb-3 border-3 border-bottom border-black mx-auto w-75">
+    <h1 class="mb-3">Collections</h1>
+  </div>
+
+  <div *ngFor="let col of collections let i = index" class="card bg-light mt-1 px-0 border-3 border-dark mx-auto d-flex flex-column container-fluid table-responsive w-75 z-2">
+    <ng-container *ngIf="edit!=i else editTemplate">
+      <div class="row container-fluid mt-1 pe-0 m-0">
+        <div class="col-12 row mb-1 container-fluid p-0 m-0">
+          <div class="col-12 col-sm-8 px-0">
+            <input disabled class="h3-like p-0 m-0 elipse-h3-like form-control border-0" value="{{col.title}}">
+          </div>
+          <div class="col-12 col-sm-4 d-flex justify-content-sm-end container-fluid">
+            <button (click)="deleteCollection(col)" class="col-12 col-sm-1 btn btn-primary rounded-1 deleteBtn p-0 hideMSBtn"><i class="bi bi-trash-fill icon-large p-0 m-0"></i></button>
+          </div>
+        </div>
+
+        <div class="col-12 m-0 ps-0 mb-1">
+          <p class="col-12 m-0">{{col.description}}</p>
+        </div>
+
+        <div class="col-12 row mb-1 container-fluid p-0 m-0">
+          <div class="col-8 col-sm-8 px-0 d-flex container-fluid">
+            <button disabled class="col-12 col-sm-1 rounded-1 deleteBtn btn d-flex justify-content-center" [ngClass]="col.hiddenStatus?.toString() == 'Private' || col.hiddenStatus == 1 ? 'btn-danger' : 'btn-success'">
+              <i class="bi eye-icon p-0 my-auto" [ngClass]="col.hiddenStatus?.toString() == 'Private' || col.hiddenStatus == 1 ? 'bi-eye-slash' : 'bi-eye'"></i>
+            </button>
+          </div>
+          <div class="col-4 col-sm-4 d-flex justify-content-end container-fluid">
+            <button class="col-12 col-sm-1 btn btn-primary rounded-1 deleteBtn p-0 hideMSBtn" (click)="enterEditMode(i, col)"><i class="bi bi-pencil icon-large p-0 m-0"></i></button>
+
+
+
+
+
+            <div class="btn-group dropstart hideSSBtn">
+              <button class="col-12 col-sm-1 btn btn-primary rounded-1 deleteBtn d-flex justify-content-center" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <i class="bi bi-gear cx-icon p-0 mx-0 my-auto"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-center text-center p-2" data-bs-theme="dark">
+                <li><a (click)="deleteCollection(col)" class="dropdown-item">Delete</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a (click)="enterEditMode(i, col)" class="dropdown-item">Edit</a></li>
+              </ul>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #editTemplate>
+      <form class="row container-fluid mt-1 pe-0 m-0" #editForm="ngForm" (ngSubmit)="saveEdits()">
+        <div class="col-12 row mb-1 container-fluid p-0 m-0">
+          <div class="col-12 col-sm-8 px-0">
+            <input class="form-control bg-light h3-like m-0 p-0 border-0" name="title" required [(ngModel)]="editingCollection.title" #title="ngModel">
+            <div [hidden]="title.valid || title.untouched"
+                 class="alert alert-danger">
+              Title can't be empty
+            </div>
+          </div>
+          <div class="col-12 col-sm-4 d-flex justify-content-end container-fluid">
+            <button (click)="deleteCollection(col)" class="col-12 col-sm-1 btn btn-primary rounded-1 deleteBtn hideMSBtn"><i class="bi bi-trash-fill icon-large p-0 m-0"></i></button>
+          </div>
+        </div>
+
+        <div class="col-12 m-0 mb-1 ps-0">
+          <textarea class="col-12 m-0 form-control bg-light" name="description" [(ngModel)]="editingCollection.description"></textarea>
+        </div>
+
+        <div class="col-12 row mb-1 container-fluid p-0 m-0">
+          <div class="col-8 col-sm-8 px-0 d-flex container-fluid">
+            <button type="button" class="col-12 col-sm-1 rounded-1 deleteBtn btn d-flex justify-content-center" (click)="switchHiddenStatus()" [ngClass]="editingCollection.hiddenStatus?.toString() == 'Private' || editingCollection.hiddenStatus == 1 ? 'btn-danger' : 'btn-success'">
+              <i class="bi eye-icon p-0 my-auto" [ngClass]="editingCollection.hiddenStatus?.toString() == 'Private' || editingCollection.hiddenStatus == 1 ? 'bi-eye-slash' : 'bi-eye'"></i>
+            </button>
+          </div>
+          <div class="col-4 col-sm-4 d-flex justify-content-end container-fluid">
+            <button class="col-12 col-sm-1 btn btn-danger rounded-1 deleteBtn d-flex justify-content-center me-1" (click)="cancelEdits()"><i class="bi bi-x-circle cx-icon p-0 my-auto"></i></button>
+            <button [disabled]="!editForm.form.valid" class="col-12 col-sm-1 btn btn-success rounded-1 deleteBtn d-flex justify-content-center" type="submit"><i class="bi bi-check-circle cx-icon p-0 my-auto"></i></button>
+          </div>
+        </div>
+      </form>
+    </ng-template>
+  </div>
+
+
+  <div class="fixed-bottom d-flex justify-content-end z-1">
+    <button (click)="addCollection()" class="btn btn-primary btn-circle btn-pullup"><i class="bi bi-plus large-plus"></i></button>
+  </div>
+
+</div>

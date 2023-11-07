@@ -1,0 +1,90 @@
+.icon-large {
+  font-size: 15px;
+}
+
+.btn-circle {
+  width: 63px;
+  height: 63px;
+  padding: 10px 16px;
+  border-radius: 35px;
+  font-size: 5px;
+  line-height: 1.4;
+}
+
+.large-plus {
+  font-size: 30px;
+}
+
+.btn-pullup {
+  margin-bottom: 80px;
+  margin-right: 130px;
+}
+
+h3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 576px) {
+  .btn-pullup {
+    margin-bottom: 80px;
+    margin-right: 12px;
+  }
+
+  .deleteBtn {
+    width: 18%;
+    max-width: 40px;
+  }
+
+  .top-margin {
+    margin-top: 4px;
+  }
+
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .deleteBtn {
+    width: 18%;
+    max-width: 40px;
+  }
+
+  .top-margin {
+    margin-top: 4px;
+  }
+
+  .btn-pullup {
+    margin-bottom: 80px;
+    margin-right: 30px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .deleteBtn {
+    width: 10%;
+    max-width: 40px;
+  }
+
+  .top-margin {
+    margin-top: 4px;
+  }
+
+  .btn-pullup {
+    margin-bottom: 80px;
+    margin-right: 60px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .btn-pullup {
+    margin-bottom: 80px;
+    margin-right: 90px;
+  }
+}
+
+@media (min-width: 992px) {
+  .deleteBtn {
+    width: 15%;
+    max-width: 40px;
+  }
+}

@@ -1,0 +1,50 @@
+<div class="idBody row w-100 m-0 mt-5 h-100 container-fluid">
+  <div class="mx-auto col-12 col-sm-12 col-md-8 col-lg-6 col-xl-6">
+    <form class="card bg-light col-12 col-sm-12 col-md-8 col-lg-7 col-xl-6 d-flex container-fluid flex-column align-items-center table-responsive" #loginForm="ngForm" (ngSubmit)="loginUser()">
+      <h1 class="card-header border-0 text-center login mt-4">Login</h1>
+      <fieldset class="email-div col-9">
+        <label for="email" class="mb-1 mt-2">Email </label>
+
+        <div class="position-relative right-addon">
+
+          <span id="emailErrorIcon" [hidden]="email.valid || email.untouched" class="bi bi-info-circle p-2"></span>
+          <input [ngClass]="email.valid || email.untouched ? 'goodClass' : 'border-2 border-color'" name="email" class="d-block form-control mb-3" id="email" type="email" placeholder="id=" required [(ngModel)]="login.email" #email="ngModel">
+
+        </div>
+
+
+      </fieldset>
+      <fieldset class="pass-div col-9">
+        <label for="pass" class="mb-1">Password </label>
+
+        <div class="position-relative right-addon">
+
+          <span id="passErrorIcon" [hidden]="pass.valid || pass.untouched" class="bi bi-info-circle p-2"></span>
+          <input [ngClass]="pass.valid || pass.untouched ? 'goodClass' : 'border-2 border-color'" name="pass" id="pass" class="d-block form-control mb-2" type="password" required [(ngModel)]="login.pass" #pass="ngModel">
+        </div>
+
+      </fieldset>
+      <fieldset class="form-check col-9 mb-3">
+        <input class="form-check-input" type="checkbox" id="remember">
+        <label class="form-check-label" for="remember"> Remember me</label>
+      </fieldset>
+
+      <fieldset class="mb-5 mx-auto col-8 mt-3">
+        <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary col-12">Submit</button>
+      </fieldset>
+
+      <div class="register mb-4 mt-2">
+        Don't have an account?
+        <a (click)="goToRegister()" href="/register">Sign up</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!--<button (click)="openSnackBarError('User not found', 'Ok')">Show snack-bar</button>-->
+
+<div id="errorPopup" class="errorPopover bg-danger text-center rounded-3" style="font-size: 0.9rem">
+  {{popupErrorMsg.errorString}}
+</div>
+
+

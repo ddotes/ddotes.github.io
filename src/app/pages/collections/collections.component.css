@@ -1,0 +1,118 @@
+.icon-large {
+  font-size: 15px;
+}
+
+.eye-icon {
+  font-size: 18px;
+}
+
+.cx-icon {
+  font-size: 17px;
+}
+
+.large-plus {
+  font-size: 30px;
+}
+
+textarea {
+  resize: none;
+}
+
+.btn-circle {
+  width: 63px;
+  height: 63px;
+  padding: 10px 16px;
+  border-radius: 35px;
+  font-size: 5px;
+  line-height: 1.4;
+}
+
+.btn-pullup {
+  margin-bottom: 80px;
+  margin-right: 130px;
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+
+.elipse-h3-like {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.h3-like {
+  font-size: 1.75rem;
+}
+
+
+
+@media (max-width: 576px) {
+  .btn-pullup {
+    margin-bottom: 80px;
+    margin-right: 12px;
+  }
+
+  .deleteBtn {
+    width: 100%;
+    max-width: 40px;
+  }
+
+  .hideMSBtn {
+    display: none
+  }
+}
+
+.dropdown-menu {
+  min-width: 1rem !important;
+}
+
+@media (min-width: 576px) {
+  .hideSSBtn {
+    display: none
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .btn-pullup {
+    margin-bottom: 80px;
+    margin-right: 30px;
+  }
+
+  .deleteBtn {
+    width: 39%;
+    max-width: 40px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .btn-pullup {
+    margin-bottom: 80px;
+    margin-right: 60px;
+  }
+
+  .deleteBtn {
+    width: 28%;
+    max-width: 40px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .btn-pullup {
+    margin-bottom: 80px;
+    margin-right: 90px;
+  }
+
+  .deleteBtn {
+    width: 30%;
+    max-width: 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .deleteBtn {
+    width: 18%;
+    max-width: 45px;
+  }
+}
