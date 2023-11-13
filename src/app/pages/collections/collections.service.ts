@@ -15,18 +15,18 @@ export class CollectionsService {
   }
 
   getCollections() {
-    return this.http.get<Collection[]>("/api/collection/userId/" + this.id.toString());
+    return this.http.get<Collection[]>("https://крымскаяягода.рус:443/api/collection/userId/" + this.id.toString());
   }
 
   updateCollection(collection: Collection) {
-    return this.http.put<Collection>("/api/collection/update", collection);
+    return this.http.put<Collection>("https://крымскаяягода.рус:443/api/collection/update", collection);
   }
 
   addCollection(collection: Collection) {
-    return this.http.post<Collection>("/api/collection/add/" + this.id.toString(), collection);
+    return this.http.post<Collection>("https://крымскаяягода.рус:443/api/collection/add/" + this.id.toString(), collection);
   }
 
   deleteCollection(collection: Collection) {
-    return this.http.delete("/api/collection/delete/" + collection.id, { responseType: 'text' });
+    return this.http.delete("https://крымскаяягода.рус:443/api/collection/delete/" + collection.id, { responseType: 'text' });
   }
 }

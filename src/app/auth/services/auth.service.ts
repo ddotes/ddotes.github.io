@@ -18,7 +18,7 @@ export class AuthService {
   }
 
   authLogin(loginForm: Login) {
-    return this.http.get<number>('/api/auth/getId' + '?email=' + loginForm.email + '&pass=' + loginForm.pass);
+    return this.http.get<number>('https://крымскаяягода.рус:443/api/auth/getId' + '?email=' + loginForm.email + '&pass=' + loginForm.pass);
   }
 
   loginUser(userId: number) {
@@ -42,27 +42,27 @@ export class AuthService {
 
   getUser() {
     if (this.isLoggedIn()) {
-      return this.http.get<User>('/api/user/id/' + this.getLocalId());
+      return this.http.get<User>('https://крымскаяягода.рус:443/api/user/id/' + this.getLocalId());
     }
     return;
   }
 
   addUser(user: User) {
-    return this.http.post<User>('/api/user/add', user);
+    return this.http.post<User>('https://крымскаяягода.рус:443/api/user/add', user);
   }
 
   addLogin(login: Login){
-    return this.http.post<Login>('/api/auth/add', login);
+    return this.http.post<Login>('https://крымскаяягода.рус:443/api/auth/add', login);
   }
 
   updateUser(user: User) {
-    return this.http.put<User>("/api/user/update", user);
+    return this.http.put<User>("https://крымскаяягода.рус:443/api/user/update", user);
   }
 
   updateLogin(login: Login) {
     login.userId = this.getLocalId();
     console.log(login);
-    return this.http.put<number>("/api/auth/update", login);
+    return this.http.put<number>("https://крымскаяягода.рус:443/api/auth/update", login);
   }
 
 }

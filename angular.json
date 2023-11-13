@@ -31,6 +31,7 @@
             "scripts": []
           },
           "configurations": {
+            "proxyConfig": "src/proxy.conf.json",
             "production": {
               "budgets": [
                 {
@@ -94,6 +95,9 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
