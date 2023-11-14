@@ -1,27 +1,45 @@
-# DiaryFrontend
+# Dotes Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
+The website is a combination of a diary journal and normal notes. Thus, the name "dotes". To get started, visit the link to the website and create an account. If I may ask, please be patient with the loading times as the backend is running on a free linux server and the database is on a raspberry pi. 
 
-## Development server
+This was created using the angular framework for the frontend and a springboot backend. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+[Website link](https://ddotes.github.io)
+## Run Locally
 
-## Code scaffolding
+Clone the project
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+  git clone https://github.com/RonaldKirk443/dotes-frontend
+```
 
-## Build
+Go to the project directory
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+  cd dotes-frontend
+```
 
-## Running unit tests
+Install dependencies
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+  npm install
+```
 
-## Running end-to-end tests
+Start the server
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+  npm start
+  OR
+  ng serve
+```
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Screenshots
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+
+## Authors
+
+- [Ronald Kirk](https://www.github.com/RonaldKirk443)
+- [Erfan Taghiabadi](https://www.github.com/LubyLub)

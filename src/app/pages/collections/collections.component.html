@@ -50,7 +50,7 @@
       </div>
     </ng-container>
     <ng-template #editTemplate>
-      <form class="row container-fluid mt-1 pe-0 m-0" #editForm="ngForm" (ngSubmit)="saveEdits()">
+      <form class="row container-fluid mt-1 pe-0 m-0" (keydown.enter)="saveEdits()" #editForm="ngForm" (ngSubmit)="saveEdits()">
         <div class="col-12 row mb-1 container-fluid p-0 m-0">
           <div class="col-12 col-sm-8 px-0">
             <input class="form-control bg-light h3-like m-0 p-0 border-0" name="title" required [(ngModel)]="editingCollection.title" #title="ngModel">

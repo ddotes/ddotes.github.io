@@ -29,7 +29,7 @@ h3 {
 @media (max-width: 576px) {
   .btn-pullup {
     margin-bottom: 80px;
-    margin-right: 12px;
+    margin-right: 5px;
   }
 
   .deleteBtn {

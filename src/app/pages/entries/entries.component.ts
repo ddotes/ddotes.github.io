@@ -49,6 +49,12 @@ export class EntriesComponent {
           entry.collection.title = "No Collection";
         }
       }
+      this.entries.sort((a, b) => {
+        if (a.editedDate && b.editedDate) {
+          return new Date(b.editedDate).getTime() - new Date(a.editedDate).getTime();
+        }
+        return 0;
+      });
     });
   }
 
@@ -130,6 +136,12 @@ export class EntriesComponent {
             })
           }
         }
+        this.entries.sort((a, b) => {
+          if (a.editedDate && b.editedDate) {
+            return new Date(b.editedDate).getTime() - new Date(a.editedDate).getTime();
+          }
+          return 0;
+        });
       });
 
     });
